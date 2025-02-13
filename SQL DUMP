@@ -1,0 +1,47 @@
+-- Laravel SQL Dump
+CREATE DATABASE IF NOT EXISTS laravel_db;
+USE laravel_db;
+
+
+    CREATE TABLE users (
+        id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+        name VARCHAR(255) NOT NULL,
+        email VARCHAR(255) UNIQUE NOT NULL,
+        email_verified_at TIMESTAMP NULL,
+        password VARCHAR(255) NOT NULL,
+        remember_token VARCHAR(100) NULL,
+        created_at TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
+        updated_at TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+    );
+    
+
+
+    CREATE TABLE password_resets (
+        email VARCHAR(255) NOT NULL,
+        token VARCHAR(255) NOT NULL,
+        created_at TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP
+    );
+    
+
+
+    CREATE TABLE failed_jobs (
+        id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+        uuid VARCHAR(255) UNIQUE NOT NULL,
+        connection TEXT NOT NULL,
+        queue TEXT NOT NULL,
+        payload LONGTEXT NOT NULL,
+        exception LONGTEXT NOT NULL,
+        failed_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+    );
+    
+
+
+    CREATE TABLE projects (
+        id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+        name VARCHAR(255) NOT NULL,
+        description TEXT NULL,
+        created_at TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
+        updated_at TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+    );
+    
+
